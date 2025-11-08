@@ -9,19 +9,19 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.6]);
 
   return (
-    <section id="home" ref={ref} className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section id="home" ref={ref} className="relative min-h-[100vh] flex items-center overflow-hidden">
       {/* 3D Spline Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <Spline
           scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
         {/* Soft gradient to ensure foreground text readability. Keep it non-blocking for interactions. */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/70 via-white/60 to-white" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/60 via-white/50 to-white/80" />
       </div>
 
       {/* Foreground Content */}
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 w-full">
         <motion.div style={{ y, opacity }} className="max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -105,11 +105,11 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
           className="absolute left-1/2 -bottom-2 sm:bottom-6 -translate-x-1/2"
         >
-          <div className="h-10 w-6 rounded-full border border-slate-300/80 flex items-start justify-center p-1">
+          <div className="h-10 w-6 rounded-full border border-slate-300/80 flex items-start justify-center p-1 bg-white/60 backdrop-blur">
             <motion.span
               animate={{ y: [0, 18, 0] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-              className="h-2 w-2 rounded-full bg-slate-500"
+              className="h-2 w-2 rounded-full bg-slate-600"
             />
           </div>
         </motion.div>
